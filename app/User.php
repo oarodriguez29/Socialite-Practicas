@@ -8,6 +8,11 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class User extends Authenticatable
 {
     use Notifiable;
+    // Funcion para la Relacion entre User-Roles.
+    public function roles()
+    {
+        return $this->belongsToMany('Socialite\Role');
+    }
 
     /**
      * The attributes that are mass assignable.
