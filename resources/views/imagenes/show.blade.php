@@ -3,6 +3,9 @@
 @section('title', 'Imagen')
 	
 @section('content')
+	
+	@include('common.success')
+
 	<div class="card text-center">
 		<img class="card-img-top img-circle mx-auto d-block" src="/images/{{ $imagen->avatar }}" alt="Imagen Card" width="200" height="200" style="background-color: #EFEFEF;">		
 	</div><br>
