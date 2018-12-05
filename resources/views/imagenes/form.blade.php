@@ -5,7 +5,7 @@
 	</div>
 	<div class="row justify-content-center">
 		{!! Form::label('slug', 'Slug') !!}
-		{!! Form::text('slug', null, ['class'=>'form-control']) !!}<br>
+			{!! Form::text('slug', null, ['class'=>'form-control']) !!}<br>
 	</div>
 	<div class="row justify-content-center">
 		{!! Form::label('description', 'Descripcion') !!}
