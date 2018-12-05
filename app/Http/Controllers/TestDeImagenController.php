@@ -53,7 +53,9 @@ class TestDeImagenController extends Controller
             $imagen->avatar = $img;
             $imagen->save();
 
-            return "Imagen Guardada con Exito! <a class='btn btn-danger' href='imagenes/create'>Volver</a>";
+            return redirect()->route('imagenes.index');
+
+            /*return "Imagen Guardada con Exito! <a class='btn btn-danger' href='imagenes/create'>Volver</a>";*/
         //return $request->input('imagen');
         //return $request->all();
     }
@@ -109,7 +111,9 @@ class TestDeImagenController extends Controller
 
         $imagen->save();
 
-        return "Imagen Actualizada <br><a href='/imagenes/'>Volver</a>";
+        return redirect()->route('imagenes.show', [$slug])->with('status','Imagen Actualizada Correctamente');
+        /*return redirect()->route('imagenes.show', [$slug]);*/
+        /*return "Imagen Actualizada <br><a href='/imagenes/'>Volver</a>";*/
     }
 
     /**
@@ -128,7 +132,9 @@ class TestDeImagenController extends Controller
         \File::delete($ruta_img);
         // Elimino la Imagen
         $imagen->delete();
+
+        return redirect()->route('imagenes.index');
         // Retorno Msj.
-        return "Imagen Eliminada <br><a href='/imagenes/'>Volver</a>";
+        /*return "Imagen Eliminada <br><a href='/imagenes/'>Volver</a>";*/
     }
 }
