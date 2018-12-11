@@ -13,6 +13,38 @@ class User extends Authenticatable
     {
         return $this->belongsToMany('Socialite\Role');
     }
+    // Autorizacion de usuarios con rol.
+    public function authorizeRoles($roles)
+    {
+        if ($this->hasAnyRole($roles)) {
+            return true;
+        }
+        abort(401, 'Esta Accion No Esta Autorizada.');
+    }
+    // Validacion en caso de ser varios roles o arreglo de roles para un user.
+    public function hasAnyRole($roles)
+    {
+        if (is_array($roles)) {
+            foreach ($roles as $role) {
+                if ($this->hasRole($role)) {
+                    return true;
+                }
+            }
+        } else {
+            if ($this->hasRole($roles)) {
+                return true;
+            }
+        }
+        return false;
+    }
+    // Valido si el Usuario tiene Rol ò si Esta Relacionado a un Rol.
+    public function hasRole($role)
+    {
+        if($this->roles()->where('name',$role)->first()){
+            return true;
+        }
+        return false;
+    }
 
     /**
      * The attributes that are mass assignable.
