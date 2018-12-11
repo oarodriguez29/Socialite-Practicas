@@ -13,10 +13,13 @@ class TestDeImagenController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        // Autorizacion Segun el Rol del Usuario (user ò admin)
+        $request->user()->authorizeRoles(['user','admin']);
+
         $imgs = Imagen::all();
-        return view('imagenes/index', compact('imgs'));
+        return view('imagenes.index', compact('imgs'));
     }
 
     /**
