@@ -15,7 +15,7 @@
                             <p>Email:</p>
                             <p><strong>{{ Auth::user()->email }}</strong></p>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-4">                            
                             <img src="{{ Auth::user()->avatar }}" alt="{{ Auth::user()->name }}" class="img-responsive img-thumbnail">
                         </div>
                     </div>
