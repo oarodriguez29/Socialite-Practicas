@@ -29,16 +29,17 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-
+                @if (is_null(Auth::user()))
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
                         {{-- config('app.name', 'Laravel') --}}
                         Inicio                        
                     </a>
+                @else
                         <ul class="nav navbar-nav navbar-left">
                             <li>
                                 <a href="{{ url('/imagenes/create') }}">
-                                    Agregar
+                                    Agregar                                    
                                 </a>
                             </li>
                             <li>
@@ -48,6 +49,7 @@
                             </li>
 
                         </ul>
+                @endif
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
