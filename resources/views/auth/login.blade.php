@@ -61,7 +61,7 @@
                             </div>
                         </div>
 
-                        <div class="justify-content-center">
+{{--                         <div class="justify-content-center">
                             <a class="btn btn-primary" href="{{ route('social.auth', 'facebook') }}">
                                 Facebook
                             </a>
@@ -73,7 +73,7 @@
                             <a class="btn btn-dark" href="{{ url('imagenes/create') }}">
                                 Imagenes
                             </a>
-                        </div>
+                        </div> --}}
 
 
                     </form>
